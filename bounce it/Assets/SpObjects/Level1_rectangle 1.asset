@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399522c396f5a3d4fa311037212192ea, type: 3}
+  m_Name: Level1_rectangle 1
+  m_EditorClassIdentifier: 
+  StartCount: 3
+  ObstacleType: {fileID: 7830868302753007357, guid: b3f83c36a12ecc2479f1f99bc8f4cd35, type: 3}
+  ButtonImage: {fileID: 21300000, guid: e07787535a197064d9704f9cab32c13d, type: 3}
