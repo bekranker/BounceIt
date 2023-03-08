@@ -49,10 +49,11 @@ public class Card : MonoBehaviour
     {
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+       
 
         if (_currentCount - 1 >= 0)
         {
-            Instantiate(_obstacleType, mousePos, Quaternion.identity);
+            Instantiate(_obstacleType, new Vector3(mousePos.x, mousePos.y, 0), Quaternion.identity);
             _currentCount--;
             CountText.text = _currentCount.ToString();
 

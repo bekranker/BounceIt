@@ -4,39 +4,42 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public bool _didPut;
+    public bool _didPut, _canHold;
 
     private GridManager _gridManager;
     private Vector3 _currentPosition;
-
+    private float _distance;
 
     void Start()
     {
         _didPut = false;
+        _canHold = true;
         _gridManager = FindObjectOfType<GridManager>();
+        _currentPosition = transform.position;
     }
 
     void Update()
     {
-
-        _currentPosition = transform.position;
-
-
         if (!_didPut)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 mousePosZ = new Vector3(mousePos.x, mousePos.y, 0);
 
 
-            if (Input.GetMouseButton(0) && OnMe())
+            if (Input.GetMouseButton(0))
             {
+                _distance = Vector3.Distance(_currentPosition, mousePosZ);
                 _gridManager.IsHoldingAnObstacle = true;
-                transform.position = mousePosZ;
+                
+                if(_distance >= 1f)
+                {
+                    print("sa");
+                    transform.position = mousePosZ;
+                    _currentPosition = transform.position;
+                }
             }
             else if(Input.GetMouseButtonUp(0) && OnMe())
                 _gridManager.IsHoldingAnObstacle = false;
-
-
         }
     }
 
