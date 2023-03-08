@@ -4,8 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
-
-
+using System.Linq;
 public class Card : MonoBehaviour
 {
 
@@ -13,6 +12,8 @@ public class Card : MonoBehaviour
     public TMP_Text CountText;
     public Image ObstacleImage;
     public Color ClickColorForText;
+    public List<GameObject> _sides;
+
 
 
     private int _startCount, _currentCount;
@@ -20,13 +21,10 @@ public class Card : MonoBehaviour
     private Sprite _buttonImage;
     private ButtonEffect _buttonEffect;
     private Vector3 _textStartSize;
-
-
     private bool _canClick;
 
     void Start()
     {
-
         _canClick = true;
 
         _startCount = CardPrefab.StartCount;
@@ -41,7 +39,9 @@ public class Card : MonoBehaviour
         _textStartSize = CountText.gameObject.transform.localScale;
 
         _buttonEffect._doClick = CreateObstacle;
-    
+
+
+        _sides = GameObject.FindGameObjectsWithTag("grid").ToList();
     
     }
 
@@ -53,7 +53,23 @@ public class Card : MonoBehaviour
 
         if (_currentCount - 1 >= 0)
         {
-            Instantiate(_obstacleType, new Vector3(mousePos.x, mousePos.y, 0), Quaternion.identity);
+
+
+            GameObject _spawnedObstacle = Instantiate(_obstacleType);
+
+            for (int i = 0; i < _sides.Count; i++)
+            {
+                int randNumber = Random.Range(0, _sides.Count);
+                if (_sides[randNumber].GetComponent<Side>().Stock == null)
+                {
+                    _sides[randNumber].GetComponent<Side>().Stock = _spawnedObstacle;
+                    _spawnedObstacle.transform.position = _sides[randNumber].transform.position;
+                    break;
+                }
+            }
+            
+            
+            
             _currentCount--;
             CountText.text = _currentCount.ToString();
 
