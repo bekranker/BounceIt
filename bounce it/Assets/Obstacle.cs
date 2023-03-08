@@ -5,12 +5,15 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public bool _didPut;
+
+    private GridManager _gridManager;
     private Vector3 _currentPosition;
 
 
     void Start()
     {
         _didPut = false;
+        _gridManager = FindObjectOfType<GridManager>();
     }
 
     void Update()
@@ -27,8 +30,11 @@ public class Obstacle : MonoBehaviour
 
             if (Input.GetMouseButton(0) && OnMe())
             {
+                _gridManager.IsHoldingAnObstacle = true;
                 transform.position = mousePosZ;
             }
+            else if(Input.GetMouseButtonUp(0) && OnMe())
+                _gridManager.IsHoldingAnObstacle = false;
 
 
         }

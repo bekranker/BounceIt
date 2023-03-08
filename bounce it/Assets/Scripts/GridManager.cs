@@ -4,16 +4,5 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    //public List<>
-
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    public bool IsHoldingAnObstacle;
 }
