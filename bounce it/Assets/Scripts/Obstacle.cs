@@ -58,7 +58,7 @@ public class Obstacle : MonoBehaviour
             Vector3 a = SideO().gameObject.transform.position;
             if(SideO().gameObject.GetComponent<Side>().Stock == null)
             {
-                _holdingObject.transform.position = new Vector3(a.x, a.y, 0);
+                _holdingObject.gameObject.transform.DOMove(new Vector3(a.x, a.y, 0), .15f);
                 SideO().gameObject.GetComponent<Side>().Stock = _holdingObject.gameObject;
                 if(_capturedSide != null)
                 {
