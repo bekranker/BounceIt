@@ -38,13 +38,11 @@ public class BallBounce : MonoBehaviour
     }
 
 
-   
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var speed = _lastVelocity.magnitude;
         var direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
         _rb.velocity = direction * Mathf.Max(speed, 0f);
+        print(_rb.velocity);
     }
 }
