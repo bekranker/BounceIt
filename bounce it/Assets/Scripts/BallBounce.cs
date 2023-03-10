@@ -11,7 +11,7 @@ public class BallBounce : MonoBehaviour
     private Rigidbody2D _rb;
     private Collider2D _collider;
     private Vector3 _lastVelocity;
-    private bool _didPush;
+    public bool _didPush;
 
 
     void Start()

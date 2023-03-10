@@ -9,10 +9,10 @@ public class Obstacle : MonoBehaviour
 {
     public bool _didPut, _canHold, _canChange;
     public LayerMask ObstacleLayer, SideLayer;
+    public GameObject _holdingObject;
 
 
     private GridManager _gridManager;
-    private GameObject _holdingObject;
     private Vector3 _currentPosition;
     private GameObject _capturedSide;
 
@@ -30,8 +30,8 @@ public class Obstacle : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && IsAnObstacle())
         {
-            _capturedSide = SideO().gameObject;
-            _holdingObject = ObstacleO().gameObject;
+            _capturedSide = SideType().gameObject;
+            _holdingObject = ObstacleType().gameObject;
             _canChange = true;
         }
 
@@ -48,32 +48,47 @@ public class Obstacle : MonoBehaviour
     }
 
     
+    //Changing position with grid system
     private void ChangePosition()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 mousePosZ = new Vector3(mousePos.x, mousePos.y, 0);
 
-        if(SideO() != null)
+
+        //if there is have a Side Rectangle
+        if(SideType() != null)
         {
-            Vector3 a = SideO().gameObject.transform.position;
-            if(SideO().gameObject.GetComponent<Side>().Stock == null)
+
+            Vector3 a = SideType().gameObject.transform.position;
+            
+            //if the Side Rectangle has no rectangle
+            if(SideType().gameObject.GetComponent<Side>().Stock == null)
             {
+
                 _holdingObject.gameObject.transform.DOMove(new Vector3(a.x, a.y, 0), .15f);
-                SideO().gameObject.GetComponent<Side>().Stock = _holdingObject.gameObject;
+
+                //set Side Rectangle's "_holdingObject" variable to what we are holding.
+                SideType().gameObject.GetComponent<Side>().Stock = _holdingObject.gameObject;
+                
+                //if _capturedSide {its mean captured Side Rectangle when we on}
                 if(_capturedSide != null)
                 {
-                    if(_capturedSide != SideO().gameObject)
+
+                    //if _capturedSide is not current side, its mean we want the before captured side.
+                    if (_capturedSide != SideType().gameObject)
                     {
+
                         _capturedSide.GetComponent<Side>().Stock = null;
                         _capturedSide = null;
-                        _capturedSide = SideO().gameObject;
+                        _capturedSide = SideType().gameObject;
                     }
                 }
             }
         }
     }
 
-    private bool IsAnObstacle()
+    //For holding obstacles
+    public bool IsAnObstacle()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 mousePosZ = new Vector3(mousePos.x, mousePos.y, 0);
@@ -83,14 +98,17 @@ public class Obstacle : MonoBehaviour
         else return false;
     }
 
-    private Collider2D SideO()
+    //For understand which Side Rectangle we are on
+    private Collider2D SideType()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 mousePosZ = new Vector3(mousePos.x, mousePos.y, 0);
         RaycastHit2D hit = Physics2D.Raycast(mousePosZ, Vector3.forward, Mathf.Infinity, SideLayer);
         return hit.collider;
     }
-    private Collider2D ObstacleO()
+
+    //For understand which holding obstacles is this
+    public Collider2D ObstacleType()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 mousePosZ = new Vector3(mousePos.x, mousePos.y, 0);
