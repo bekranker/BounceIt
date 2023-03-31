@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level1_Polygon
   m_EditorClassIdentifier: 
   StartCount: 3
-  ObstacleType: {fileID: 6761964636117929660, guid: 0369335c0a5e4404cb023bedd68b4ddb, type: 3}
-  ButtonImage: {fileID: 21300000, guid: 571e2d21b28023249aa653222e015980, type: 3}
+  ObstacleType: {fileID: 7830868302753007357, guid: b3f83c36a12ecc2479f1f99bc8f4cd35, type: 3}
+  ButtonImage: {fileID: 21300000, guid: f07292ef8562d96479a65e0c400048c4, type: 3}
