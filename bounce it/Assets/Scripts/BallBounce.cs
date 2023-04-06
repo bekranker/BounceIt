@@ -41,8 +41,11 @@ public class BallBounce : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var speed = _lastVelocity.magnitude;
-        var direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
-        _rb.velocity = direction * Mathf.Max(speed, 0f);
+        Vector3 direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
+        Vector3 roundedVector = new Vector3(Mathf.RoundToInt(direction.x), Mathf.RoundToInt(direction.y), 0);
+        print(roundedVector);
+        _rb.velocity = Vector2.zero;
+        _rb.velocity = roundedVector * Mathf.Max(speed, 0f);
         print(_rb.velocity);
     }
 }

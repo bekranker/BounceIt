@@ -19,7 +19,7 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [Header("-----Exit-----")]
     [Space(5)]
     [SerializeField] float _ExitTime;
-    [SerializeField] Color _OnExitColor;
+     Color _OnExitColor;
 
 
     [Space(15)]
@@ -55,6 +55,7 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        _OnExitColor = GetComponent<Image>().color;
         _isEnter = true;
         _image.DOColor(_OnEnterColor, _EnterTime);
         _image.gameObject.transform.DOScale(_OnEnterSize, _EnterTime).OnComplete(() => _canChange = true);

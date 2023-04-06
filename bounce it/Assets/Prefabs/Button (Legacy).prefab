@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.2159214, y: 9.635902}
+  m_AnchoredPosition: {x: -8.457808, y: 9.635902}
   m_SizeDelta: {x: 34.24, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4093538858762527068
@@ -70,15 +70,15 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 346f2d14a0afacb409507671a4a3e9c3, type: 2}
+  m_sharedMaterial: {fileID: 640189027589652143, guid: 346f2d14a0afacb409507671a4a3e9c3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281742902
+  m_fontColor: {r: 0.21176471, g: 0.21176471, b: 0.21176471, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 47.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e07787535a197064d9704f9cab32c13d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26a4194bf004ba74e9d15080b3b5bebb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -298,6 +298,7 @@ MonoBehaviour:
   CountText: {fileID: 4122594056152445365}
   ObstacleImage: {fileID: 3388615532165419001}
   ClickColorForText: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
+  _sides: []
 --- !u!1 &7258167802649419588
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +365,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f07292ef8562d96479a65e0c400048c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
