@@ -32,9 +32,9 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 
 
-    [HideInInspector] public delegate void doClick();
-    [HideInInspector] public doClick _doClick;
 
+    [SerializeField] public delegate void doClick();
+    [SerializeField] public doClick _doClick;
 
     private Image _image;
     private Vector2 _startSize;
@@ -50,6 +50,7 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _image = GetComponent<Image>();
         _startColor = GetComponent<Image>().color;
         _startSize = transform.localScale;
+        _OnExitColor = GetComponent<Image>().color;
     }
 
 
