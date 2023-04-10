@@ -16,7 +16,7 @@ public class PlayModeState : LevelBaseState
 
     public override void OnStart(LevelStateManager levelStateManager)
     {
-
+        levelStateManager.EditMode = false;
     }
 
    

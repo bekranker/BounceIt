@@ -10,13 +10,15 @@ public class Hit : MonoBehaviour
 
     private Color _startColor;
     private SpriteRenderer _spriteR;
-    
-    
+
+    private LevelStateManager _levelStateManager => FindAnyObjectByType<LevelStateManager>();
     
     void Start()
     {
         _startColor = GetComponent<SpriteRenderer>().color;
         _spriteR = GetComponent<SpriteRenderer>();
+        GetComponent<SpriteRenderer>().color = (_levelStateManager.Market == false) ? _levelStateManager.whiteColor : _levelStateManager.grayColor;
+        _levelStateManager.ToGray.Add(gameObject);
     }
 
 

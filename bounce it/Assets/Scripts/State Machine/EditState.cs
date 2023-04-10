@@ -11,9 +11,11 @@ public class EditState : LevelBaseState
     public override void OnStart(LevelStateManager levelStateManager)
     {
         levelStateManager.EditMode = true;
+        
     }
 
     public override void ClickPlayMode(LevelStateManager levelStateManager)
     {
+       
     }
 }

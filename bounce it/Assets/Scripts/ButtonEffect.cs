@@ -41,7 +41,7 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private Color _startColor;
     private Vector2 _currentSize;
     private bool _isEnter, _canChange;
-
+    private LevelStateManager _levelStateManager => FindAnyObjectByType<LevelStateManager>();
 
     private void Start()
     {
@@ -51,12 +51,12 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _startColor = GetComponent<Image>().color;
         _startSize = transform.localScale;
         _OnExitColor = GetComponent<Image>().color;
+
     }
 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _OnExitColor = GetComponent<Image>().color;
         _isEnter = true;
         _image.DOColor(_OnEnterColor, _EnterTime);
         _image.gameObject.transform.DOScale(_OnEnterSize, _EnterTime).OnComplete(() => _canChange = true);
@@ -66,6 +66,7 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerExit(PointerEventData eventData)
     {
         _isEnter = false;
+        _OnExitColor = (_levelStateManager.Market == true) ? _levelStateManager.grayColor : _levelStateManager.whiteColor;
         _image.DOColor(_OnExitColor, _ExitTime);
         _image.gameObject.transform.DOScale(_startSize, _ExitTime).OnComplete(() => _canChange = true);
         _canChange = false;

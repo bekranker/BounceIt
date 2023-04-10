@@ -10,6 +10,7 @@ public class Obstacle : MonoBehaviour
     public bool _didPut, _canHold, _canChange;
     public LayerMask ObstacleLayer, SideLayer;
     public GameObject _holdingObject;
+    [SerializeField] private LevelStateManager _LevelStateManager;
 
 
     private GridManager _gridManager;
@@ -28,6 +29,7 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
+        if (_LevelStateManager.OnPlay) return;
         if (Input.GetMouseButtonDown(0) && IsAnObstacle())
         {
             _capturedSide = SideType().gameObject;

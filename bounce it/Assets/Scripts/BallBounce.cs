@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BallBounce : MonoBehaviour
 {
     public Vector2 StartWay;
     public ButtonEffect _ButtonEffect;
+    public ButtonEffect OpenLayer;
 
-    
+
     private Rigidbody2D _rb;
     private Collider2D _collider;
     private Vector3 _lastVelocity;
@@ -19,7 +21,7 @@ public class BallBounce : MonoBehaviour
         _didPush = false;
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
-        _ButtonEffect._doClick = Push;
+        _ButtonEffect._doClick += Push;
     }
 
     private void Push()
