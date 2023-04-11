@@ -103,6 +103,7 @@ MonoBehaviour:
   HitColor: {r: 1, g: 0.26186645, b: 0.23113209, a: 1}
   HitColorTimeIn: 0.1
   HitColorTimeOut: 0.1
+  _Effect: {fileID: 9060782191139044501, guid: 3b632b7f6cbb1d94c934ec39b89394a0, type: 3}
 --- !u!60 &2194969477299080593
 PolygonCollider2D:
   m_ObjectHideFlags: 0

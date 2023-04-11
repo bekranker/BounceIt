@@ -96,7 +96,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7136692896644316500}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6ede3c50f0f3c984c8d67eda3313340b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0916305, y: 0.90815806}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &7136692896644316493
 MonoBehaviour:
@@ -128,6 +128,7 @@ MonoBehaviour:
   HitColor: {r: 1, g: 0.2783019, b: 0.2783019, a: 1}
   HitColorTimeIn: 0.1
   HitColorTimeOut: 0.1
+  _Effect: {fileID: 9060782191139044501, guid: 3b632b7f6cbb1d94c934ec39b89394a0, type: 3}
 --- !u!114 &7136692896644316494
 MonoBehaviour:
   m_ObjectHideFlags: 0

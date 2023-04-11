@@ -6,6 +6,11 @@ public class Side : MonoBehaviour
 {
     public GameObject Stock;
 
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         Stock = null;

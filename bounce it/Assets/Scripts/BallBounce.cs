@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 
 public class BallBounce : MonoBehaviour
 {
@@ -14,7 +14,6 @@ public class BallBounce : MonoBehaviour
     private Collider2D _collider;
     private Vector3 _lastVelocity;
     public bool _didPush;
-
 
     void Start()
     {
@@ -50,4 +49,5 @@ public class BallBounce : MonoBehaviour
         _rb.velocity = roundedVector * Mathf.Max(speed, 0f);
         print(_rb.velocity);
     }
+   
 }

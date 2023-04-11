@@ -11,8 +11,9 @@ public class Obstacle : MonoBehaviour
     public LayerMask ObstacleLayer, SideLayer;
     public GameObject _holdingObject;
     [SerializeField] private LevelStateManager _LevelStateManager;
-
-
+    [SerializeField] private List<SpriteRenderer> _Pluses = new List<SpriteRenderer>();
+    [SerializeField, Range(0.05f, 1f)] private float _Speed;
+    [SerializeField] private Color _GrayColor;
     private GridManager _gridManager;
     private Vector3 _currentPosition;
     private GameObject _capturedSide;
@@ -35,6 +36,14 @@ public class Obstacle : MonoBehaviour
             _capturedSide = SideType().gameObject;
             _holdingObject = ObstacleType().gameObject;
             _canChange = true;
+            if (!_LevelStateManager.Market)
+            {
+                _Pluses.ForEach((_plus) =>
+                {
+                    _plus.DOFade(1, _Speed);
+                });
+            }
+            
         }
 
 
@@ -46,6 +55,14 @@ public class Obstacle : MonoBehaviour
         {
             _canChange = false;
             _holdingObject = null;
+            if (!_LevelStateManager.Market)
+            {
+                _Pluses.ForEach((_plus) =>
+                {
+                    _plus.DOFade(0, _Speed);
+                });
+            }
+                
         }
     }
 
