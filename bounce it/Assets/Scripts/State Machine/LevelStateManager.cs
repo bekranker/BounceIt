@@ -9,12 +9,8 @@ using TMPro;
 
 public class LevelStateManager : MonoBehaviour
 {
-    public LevelBaseState CurrentState;
 
-    [Space(10)]
-    public MarketState _MarketState_ = new MarketState();
-    public EditState _EditState_ = new EditState();
-    public PlayModeState _PlayModeState_ = new PlayModeState();
+
     public bool EditMode, Market;
 
     [Space(10)]
@@ -29,7 +25,7 @@ public class LevelStateManager : MonoBehaviour
     [Range(0.05f, 1)] public float Speed;
     public GameObject CardPanel;
     public Transform To;
-    public ButtonEffect OpenLayer, PlayButton;
+    public ButtonEffect OpenLayer, PlayButton, HomeButton, RestartButton;
     private bool _didOpen, _canGo;
     private Vector2 _startPosition;
     public bool OnPlay;
@@ -37,6 +33,18 @@ public class LevelStateManager : MonoBehaviour
     [Space(10)]
     [SerializeField] private Transform _To, _Start, Area;
     [SerializeField] private TMP_Text LevelText, LevelTextShadow;
+
+
+
+
+
+
+
+
+
+
+
+
     private void Start()
     {
         _canGo = true;
@@ -47,10 +55,11 @@ public class LevelStateManager : MonoBehaviour
             PlayButton._doClick += PlayButtonF;
         if(CardPanel != null)
             _startPosition = CardPanel.transform.position;
+        if (HomeButton != null)
+            HomeButton._doClick = ReturnHome;
+        if (RestartButton != null)
+            RestartButton._doClick = RestartLevel;
 
-
-        CurrentState = _EditState_;
-        CurrentState.OnStart(this);
 
         if(SceneManager.GetActiveScene().buildIndex > 0)
         {
@@ -87,7 +96,8 @@ public class LevelStateManager : MonoBehaviour
             });
         }
     }
-
+    private void ReturnHome() => SceneManager.LoadScene(0);
+    private void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     private void MarketOpen()
     {
         ToGray.ForEach((_image) => 
@@ -225,7 +235,7 @@ public class LevelStateManager : MonoBehaviour
     private void PlayButtonF()
     {
         PlayButton.enabled = false;
-        OpenLayer.GetComponent<Image>().DOFade(0, Speed).OnComplete(()=>PlayButton.GetComponent<Image>().DOFade(0, Speed));
+        OpenLayer.GetComponent<Image>().DOFade(0, Speed / 2).OnComplete(()=>PlayButton.GetComponent<Image>().DOFade(0, Speed / 2));
         _canGo = false;
         Market = false;
         OnPlay = true;
@@ -261,10 +271,5 @@ public class LevelStateManager : MonoBehaviour
             _canGo = false;
         }
 
-    }
-    public void SwitchState(LevelBaseState toState)
-    {
-        CurrentState = toState;
-        CurrentState.OnStart(this);
     }
 }

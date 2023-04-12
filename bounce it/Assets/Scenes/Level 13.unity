@@ -241,6 +241,16 @@ PrefabInstance:
       objectReference: {fileID: 874701474}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b98d27d2b5aa8b42bec9e7248639bda, type: 3}
+--- !u!1 &173988216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3766985638313613604, guid: 0b98d27d2b5aa8b42bec9e7248639bda, type: 3}
+  m_PrefabInstance: {fileID: 173988215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &173988217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3766985639027471396, guid: 0b98d27d2b5aa8b42bec9e7248639bda, type: 3}
+  m_PrefabInstance: {fileID: 173988215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &581319254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -298,6 +308,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77b02892d5c4967489b6032578d19a5c, type: 3}
+--- !u!1 &581319255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6391778985738006561, guid: 77b02892d5c4967489b6032578d19a5c, type: 3}
+  m_PrefabInstance: {fileID: 581319254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &581319256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6391778985261293033, guid: 77b02892d5c4967489b6032578d19a5c, type: 3}
+  m_PrefabInstance: {fileID: 581319254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &835416829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -602,6 +622,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.data[2]
+      value: 
+      objectReference: {fileID: 173988216}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.data[3]
+      value: 
+      objectReference: {fileID: 581319255}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.data[4]
+      value: 
+      objectReference: {fileID: 173988217}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.data[5]
+      value: 
+      objectReference: {fileID: 581319256}
     - target: {fileID: 8349782075154956323, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
       propertyPath: Stock
       value: 

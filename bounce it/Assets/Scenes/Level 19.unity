@@ -184,6 +184,16 @@ PrefabInstance:
       objectReference: {fileID: 377613173}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b98d27d2b5aa8b42bec9e7248639bda, type: 3}
+--- !u!1 &363512774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3766985638313613604, guid: 0b98d27d2b5aa8b42bec9e7248639bda, type: 3}
+  m_PrefabInstance: {fileID: 363512773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &363512775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3766985639027471396, guid: 0b98d27d2b5aa8b42bec9e7248639bda, type: 3}
+  m_PrefabInstance: {fileID: 363512773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &377613172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,6 +254,16 @@ PrefabInstance:
 --- !u!4 &377613173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6391778985738006560, guid: 77b02892d5c4967489b6032578d19a5c, type: 3}
+  m_PrefabInstance: {fileID: 377613172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &377613174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6391778985738006561, guid: 77b02892d5c4967489b6032578d19a5c, type: 3}
+  m_PrefabInstance: {fileID: 377613172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &377613175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6391778985261293033, guid: 77b02892d5c4967489b6032578d19a5c, type: 3}
   m_PrefabInstance: {fileID: 377613172}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &860241184
@@ -876,6 +896,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.data[2]
+      value: 
+      objectReference: {fileID: 363512774}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.data[3]
+      value: 
+      objectReference: {fileID: 377613174}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.data[4]
+      value: 
+      objectReference: {fileID: 363512775}
+    - target: {fileID: 8349782074998658600, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
+      propertyPath: extras.Array.data[5]
+      value: 
+      objectReference: {fileID: 377613175}
     - target: {fileID: 8349782075025497983, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
       propertyPath: layer.m_Bits
       value: 119
