@@ -9,31 +9,29 @@ public class Hit : MonoBehaviour
     public float HitColorTimeIn, HitColorTimeOut;
 
     [SerializeField] private ParticleSystem _Effect;
+    [SerializeField] private SpriteRenderer _Sp;
 
-    private Color _startColor;
-    private SpriteRenderer _spriteR;
+    private Color _startColor => Color.white;
     private LevelStateManager _levelStateManager => FindAnyObjectByType<LevelStateManager>();
     
 
 
     void Start()
     {
-        _startColor = GetComponent<SpriteRenderer>().color;
-        _spriteR = GetComponent<SpriteRenderer>();
-        GetComponent<SpriteRenderer>().color = (_levelStateManager.Market == false) ? _levelStateManager.whiteColor : _levelStateManager.grayColor;
-        _levelStateManager.ToGray.Add(gameObject);
+        _Sp.color = (_levelStateManager.Market == false) ? _levelStateManager.whiteColor : _levelStateManager.grayColor;
+        _levelStateManager.ToGray.Add(_Sp.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        _spriteR.DOColor(HitColor, HitColorTimeIn).OnComplete(()=>_spriteR.DOColor(_startColor, HitColorTimeOut));
-        ParticleSystem a = Instantiate(_Effect, transform.position, transform.rotation);
+        _Sp.DOColor(HitColor, HitColorTimeIn).OnComplete(()=> _Sp.DOColor(_startColor, HitColorTimeOut));
+        ParticleSystem a = Instantiate(_Effect, _Sp.transform.position, _Sp.transform.rotation);
 
         ParticleSystem.MainModule b = a.main;
 
-        b.startRotation = Quaternion.ToEulerAngles(transform.rotation).z * -1;
-        a.textureSheetAnimation.SetSprite(0, GetComponent<SpriteRenderer>().sprite);
+        b.startRotation = Quaternion.ToEulerAngles(_Sp.gameObject.transform.rotation).z * -1;
+        a.textureSheetAnimation.SetSprite(0, _Sp.sprite);
 
     }
 

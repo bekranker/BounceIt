@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 399522c396f5a3d4fa311037212192ea, type: 3}
-  m_Name: Line
+  m_Name: Level07
   m_EditorClassIdentifier: 
-  StartCount: 3
-  ObstacleType: {fileID: 7136692896644316500, guid: 873f865379beed6449d9d9a52d07e027, type: 3}
-  ButtonImage: {fileID: 21300000, guid: ba3bf2f94e635bb4ca0ec7a76d929126, type: 3}
+  StartCount: 2
+  ObstacleType: {fileID: 7830868302753007357, guid: b3f83c36a12ecc2479f1f99bc8f4cd35, type: 3}
+  ButtonImage: {fileID: 21300000, guid: 6204d561cbff1bc49a9abffa334cf650, type: 3}

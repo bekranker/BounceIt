@@ -10,6 +10,7 @@ TagManager:
   - PolygonObstacle
   - SquareObstacle
   - Obstacle
+  - Portal
   layers:
   - Default
   - TransparentFX

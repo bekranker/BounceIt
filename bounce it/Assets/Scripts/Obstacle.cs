@@ -17,12 +17,13 @@ public class Obstacle : MonoBehaviour
     private GridManager _gridManager;
     private Vector3 _currentPosition;
     private GameObject _capturedSide;
-
-
+    private bool _canRotate;
+    public Vector3 a;   
 
 
     void Start()
     {
+        _canRotate = true;
         _canHold = true;
         _gridManager = FindObjectOfType<GridManager>();
         _currentPosition = transform.position;
@@ -64,8 +65,25 @@ public class Obstacle : MonoBehaviour
             }
                 
         }
+
+        if (Input.GetMouseButtonDown(1) && IsAnObstacle())
+        {
+            RotateObstacle();
+        }
     }
 
+    //Rotate the Obstacle
+    private void RotateObstacle()
+    {
+        if (!_canRotate) return;
+        if (ObstacleType() != null)
+        {
+            a = new Vector3(0, 0, Mathf.Round(ObstacleType().transform.rotation.eulerAngles.z - 45));
+            ObstacleType().gameObject.transform.DORotate(a, _Speed).OnComplete(() => _canRotate = true);
+            _canRotate = false;
+            print("rotated");
+        }
+    }
     
     //Changing position with grid system
     private void ChangePosition()

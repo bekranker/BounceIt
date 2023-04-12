@@ -1,26 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class ObstacleLine : MonoBehaviour
 {
     [SerializeField] BoxCollider2D _BoxCollider;
     [SerializeField] bool _IsPolygon;
+    [SerializeField, Range(0.05f, 1)] private float _Speed;
 
     private BallBounce _ballBounce;
     private bool _didStart;
 
+    
 
-
+ 
 
     void Start()
     {
         _ballBounce = GameObject.FindGameObjectWithTag("Player").GetComponent<BallBounce>();
-
     }
 
     void Update()
     {
+       
+
         #region boxcollider size
         if (_ballBounce._didPush && !_didStart)
         {
@@ -36,4 +41,5 @@ public class ObstacleLine : MonoBehaviour
         }
         #endregion
     }
+
 }

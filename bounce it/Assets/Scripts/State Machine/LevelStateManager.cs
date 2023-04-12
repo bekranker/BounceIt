@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
@@ -33,18 +34,58 @@ public class LevelStateManager : MonoBehaviour
     private Vector2 _startPosition;
     public bool OnPlay;
 
-
+    [Space(10)]
+    [SerializeField] private Transform _To, _Start, Area;
+    [SerializeField] private TMP_Text LevelText, LevelTextShadow;
     private void Start()
     {
         _canGo = true;
         _didOpen = false;
-        OpenLayer._doClick += OpenCardPanel;
-        PlayButton._doClick += PlayButtonF;
-        _startPosition = CardPanel.transform.position;
+        if(OpenLayer != null)
+            OpenLayer._doClick += OpenCardPanel;
+        if (PlayButton != null)
+            PlayButton._doClick += PlayButtonF;
+        if(CardPanel != null)
+            _startPosition = CardPanel.transform.position;
 
 
         CurrentState = _EditState_;
         CurrentState.OnStart(this);
+
+        if(SceneManager.GetActiveScene().buildIndex > 0)
+        {
+            LevelText.text = $"Level - {SceneManager.GetActiveScene().buildIndex}";
+            LevelTextShadow.text = $"Level - {SceneManager.GetActiveScene().buildIndex}";
+        }
+
+
+        if(ToGray != null)
+        {
+            ToGray.ForEach((togray) =>
+            {
+                if (togray.gameObject.GetComponent<Image>() != null)
+                {
+                    togray.gameObject.GetComponent<Image>().DOFade(0, 0).OnComplete(() =>
+                    {
+                        togray.gameObject.GetComponent<Image>().DOFade(1, Speed);
+                    });
+                }
+                if (togray.gameObject.GetComponent<SpriteRenderer>() != null)
+                {
+                    togray.gameObject.GetComponent<SpriteRenderer>().DOFade(0, 0).OnComplete(() =>
+                    {
+                        togray.gameObject.GetComponent<SpriteRenderer>().DOFade(1, Speed);
+                    });
+                }
+                if (togray.gameObject.GetComponent<TMP_Text>() != null)
+                {
+                    togray.gameObject.GetComponent<TMP_Text>().DOFade(0, 0).OnComplete(() =>
+                    {
+                        togray.gameObject.GetComponent<TMP_Text>().DOFade(1, Speed);
+                    });
+                }
+            });
+        }
     }
 
     private void MarketOpen()
@@ -183,8 +224,8 @@ public class LevelStateManager : MonoBehaviour
     }
     private void PlayButtonF()
     {
-        
-        OpenLayer.GetComponent<Image>().DOFade(0, Speed).OnComplete(()=> PlayButton.enabled = false).OnComplete(()=>PlayButton.GetComponent<Image>().DOFade(0, Speed));
+        PlayButton.enabled = false;
+        OpenLayer.GetComponent<Image>().DOFade(0, Speed).OnComplete(()=>PlayButton.GetComponent<Image>().DOFade(0, Speed));
         _canGo = false;
         Market = false;
         OnPlay = true;
@@ -200,6 +241,7 @@ public class LevelStateManager : MonoBehaviour
             {
                 OpenLayer.transform.DORotate(new Vector3(0, 0, 180), Speed);
                 CardPanel.transform.DOMove(To.position, Speed).OnComplete(() => _canGo = true);
+                Area.transform.DOMove(_To.position, Speed);
                 PlayButton.enabled = false;
                 Market = true;
                 MarketOpen();
@@ -208,6 +250,7 @@ public class LevelStateManager : MonoBehaviour
             {
                 OpenLayer.transform.DORotate(new Vector3(0, 0, 0), Speed);
                 CardPanel.transform.DOMove(_startPosition, Speed).OnComplete(() => _canGo = true);
+                Area.transform.DOMove(_Start.position, Speed);
                 PlayButton.enabled = true;
                 Market = false;
                 MarketClose();
