@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
@@ -28,11 +29,11 @@ public class Goal : MonoBehaviour
     {
         _WinPanel.SetActive(true);
         _WinPanel.GetComponent<CanvasGroup>().DOFade(1, .15f);
-        Toes();
-
+        Toses();
+        SaveLevel();
     }
 
-    private void Toes()
+    private void Toses()
     {
         mainSettings.DOFade(0, _LevelStateManager.Speed);
         _LevelNameShadow.DOFade(0, _LevelStateManager.Speed);
@@ -125,5 +126,11 @@ public class Goal : MonoBehaviour
             }
         });
     }
-
+    private void SaveLevel()
+    {
+        if (!PlayerPrefs.HasKey($"Level: {SceneManager.GetActiveScene().buildIndex} is Unlocked"))
+        {
+            PlayerPrefs.SetFloat($"Level: {SceneManager.GetActiveScene().buildIndex} is Unlocked", 1f);
+        }
+    }
 }

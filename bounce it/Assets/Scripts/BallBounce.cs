@@ -22,7 +22,7 @@ public class BallBounce : MonoBehaviour
         _didPush = false;
         _rb = GetComponent<Rigidbody2D>();
         _ButtonEffect._doClick += Push;
-
+        _collider.isTrigger = true;
 
         if (StartWay.x > 0)
         {
@@ -40,11 +40,12 @@ public class BallBounce : MonoBehaviour
 
     }
 
+
     private void Push()
     {
         if (_didPush) return;
 
-        _collider.enabled = true;
+        _collider.isTrigger = false;
         _rb.velocity = StartWay * 200 * Time.fixedDeltaTime;
         _didPush = true;
         _Arrow.GetComponent<SpriteRenderer>().enabled = false;

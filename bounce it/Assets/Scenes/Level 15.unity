@@ -652,7 +652,7 @@ PrefabInstance:
     - target: {fileID: 8349782074997723632, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
       propertyPath: Stock
       value: 
-      objectReference: {fileID: 8349782074073028193}
+      objectReference: {fileID: 0}
     - target: {fileID: 8349782074997723632, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
       propertyPath: layer.m_Bits
       value: 119
@@ -727,11 +727,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
---- !u!1 &8349782074073028193 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8349782074702358552, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
-  m_PrefabInstance: {fileID: 8349782074073028192}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8349782074073028195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8349782074017231744, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}

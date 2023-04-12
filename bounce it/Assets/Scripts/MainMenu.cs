@@ -22,6 +22,15 @@ public class MainMenu : MonoBehaviour
         _StartButton._doClick = StartTheGame;
     }
 
+    public async void SetLevel(int index)
+    {
+        _Canvases.ForEach((_canvas) =>
+        {
+            _canvas.DOFade(0, _Speed);
+        });
+        await Task.Delay(1000);
+        SceneManager.LoadScene(index);
+    }
 
     public void OpenLevelSelection()
     {
