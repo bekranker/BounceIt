@@ -13,23 +13,23 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Transform _LevelSelection, _MainMenu, From, To;
     [SerializeField, Range(0.05f, 5f)] private float _Speed;
     [SerializeField] private List<CanvasGroup> _Canvases;
-
+    public bool CanClick;
 
     private void Start()
     {
+        CanClick = true;
         _LevelSelectionButton._doClick = OpenLevelSelection;
         _BackButton._doClick = BackToMainMenu;
         _StartButton._doClick = StartTheGame;
     }
 
-    public async void SetLevel(int index)
+    public void SetLevel(int index)
     {
         _Canvases.ForEach((_canvas) =>
         {
             _canvas.DOFade(0, _Speed);
         });
-        await Task.Delay(1000);
-        SceneManager.LoadScene(index);
+        StartCoroutine(Delay(_Speed, index));
     }
 
     public void OpenLevelSelection()
@@ -37,18 +37,24 @@ public class MainMenu : MonoBehaviour
         _LevelSelection.DOMove(From.position, _Speed).SetEase(Ease.OutBounce);
         _MainMenu.DOMove(To.position, _Speed).SetEase(Ease.OutBounce);
     }
-    public async void StartTheGame()
+    public void StartTheGame()
     {
         _Canvases.ForEach((_canvas) => 
         {
             _canvas.DOFade(0, _Speed);
         });
-        await Task.Delay(1000);
-        SceneManager.LoadScene(1);
+        StartCoroutine(Delay(_Speed, 1));
     }
     public void BackToMainMenu()
     {
+        if (!CanClick) return;
         _LevelSelection.DOMove(To.position, _Speed).SetEase(Ease.OutBounce);
         _MainMenu.DOMove(From.position, _Speed).SetEase(Ease.OutBounce);
+    }
+
+    IEnumerator Delay(float _Speed, int index)
+    {
+        yield return new WaitForSeconds(_Speed);
+        SceneManager.LoadScene(index);
     }
 }

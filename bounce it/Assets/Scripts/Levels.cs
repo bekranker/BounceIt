@@ -13,6 +13,7 @@ public class Levels : MonoBehaviour
     [SerializeField, Range(0.1f, 10)] private float _Speed;
     [SerializeField] private Sprite _UnlockSprite;
 
+    private MainMenu _mainMenu => GetComponent<MainMenu>();
     int _index = 0;
     bool _canClick = true;
 
@@ -49,15 +50,24 @@ public class Levels : MonoBehaviour
         if(_index <= 6)
         {
             Vector3 a = new Vector3(5f, 0, 0);
-            _Transform.DOMoveX(_Transform.position.x - a.x, _Speed).SetEase(Ease.OutBounce).OnComplete(()=> _canClick = true);
+            _Transform.DOMoveX(_Transform.position.x - a.x, _Speed).SetEase(Ease.OutBounce).OnComplete(()=> 
+            {
+                _mainMenu.CanClick = true;
+                _canClick = true;
+            });
         }
         else
         {
             _index = 0;
             Vector3 a = new Vector3(30f, 0, 0);
-            _Transform.DOMoveX(_Transform.position.x + a.x, _Speed).SetEase(Ease.OutBounce).OnComplete(() => _canClick = true);
+            _Transform.DOMoveX(_Transform.position.x + a.x, _Speed).SetEase(Ease.OutBounce).OnComplete(() => 
+            {
+                _mainMenu.CanClick = true;
+                _canClick = true;
+            });
         }
 
+        _mainMenu.CanClick = false;
         _canClick = false;
     }
     public void Left()
@@ -69,15 +79,23 @@ public class Levels : MonoBehaviour
         if (_index >= 0)
         {
             Vector3 a = new Vector3(5f, 0, 0);
-            _Transform.DOMoveX(_Transform.position.x + a.x, _Speed).SetEase(Ease.OutBounce).OnComplete(() => _canClick = true);
+            _Transform.DOMoveX(_Transform.position.x + a.x, _Speed).SetEase(Ease.OutBounce).OnComplete(() => 
+            {
+                _canClick = true;
+                _mainMenu.CanClick = true;
+            });
         }
         else
         {
             _index = 6;
             Vector3 a = new Vector3(30f, 0, 0);
-            _Transform.DOMoveX(_Transform.position.x - a.x, _Speed).SetEase(Ease.OutBounce).OnComplete(() => _canClick = true);
+            _Transform.DOMoveX(_Transform.position.x - a.x, _Speed).SetEase(Ease.OutBounce).OnComplete(() => 
+            {
+                _mainMenu.CanClick = true;
+                _canClick = true;
+            });
         }
-
+        _mainMenu.CanClick = false;
         _canClick = false;
     }
 

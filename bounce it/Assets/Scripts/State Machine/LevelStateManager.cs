@@ -24,10 +24,9 @@ public class LevelStateManager : MonoBehaviour
     [Space(10)]
     [Range(0.05f, 1)] public float Speed;
     public GameObject CardPanel;
-    public Transform To;
+    public Transform To, From;
     public ButtonEffect OpenLayer, PlayButton, HomeButton, RestartButton;
     private bool _didOpen, _canGo;
-    private Vector2 _startPosition;
     public bool OnPlay;
 
     [Space(10)]
@@ -47,14 +46,13 @@ public class LevelStateManager : MonoBehaviour
 
     private void Start()
     {
+        print($"Level{SceneManager.GetActiveScene().name}");
         _canGo = true;
         _didOpen = false;
         if(OpenLayer != null)
             OpenLayer._doClick += OpenCardPanel;
         if (PlayButton != null)
             PlayButton._doClick += PlayButtonF;
-        if(CardPanel != null)
-            _startPosition = CardPanel.transform.position;
         if (HomeButton != null)
             HomeButton._doClick = ReturnHome;
         if (RestartButton != null)
@@ -66,7 +64,24 @@ public class LevelStateManager : MonoBehaviour
             LevelText.text = $"Level - {SceneManager.GetActiveScene().buildIndex}";
             LevelTextShadow.text = $"Level - {SceneManager.GetActiveScene().buildIndex}";
         }
-
+        if (ToGray != null)
+        {
+            ToGray.ForEach((togray) =>
+            {
+                if (togray.gameObject.GetComponent<Image>() != null)
+                {
+                    togray.gameObject.GetComponent<Image>().DOFade(0, 0);
+                }
+                if (togray.gameObject.GetComponent<SpriteRenderer>() != null)
+                {
+                    togray.gameObject.GetComponent<SpriteRenderer>().DOFade(0, 0);
+                }
+                if (togray.gameObject.GetComponent<TMP_Text>() != null)
+                {
+                    togray.gameObject.GetComponent<TMP_Text>().DOFade(0, 0);
+                }
+            });
+        }
 
         if(ToGray != null)
         {
@@ -74,24 +89,15 @@ public class LevelStateManager : MonoBehaviour
             {
                 if (togray.gameObject.GetComponent<Image>() != null)
                 {
-                    togray.gameObject.GetComponent<Image>().DOFade(0, 0).OnComplete(() =>
-                    {
-                        togray.gameObject.GetComponent<Image>().DOFade(1, Speed);
-                    });
+                    togray.gameObject.GetComponent<Image>().DOFade(1, Speed);
                 }
                 if (togray.gameObject.GetComponent<SpriteRenderer>() != null)
                 {
-                    togray.gameObject.GetComponent<SpriteRenderer>().DOFade(0, 0).OnComplete(() =>
-                    {
-                        togray.gameObject.GetComponent<SpriteRenderer>().DOFade(1, Speed);
-                    });
+                    togray.gameObject.GetComponent<SpriteRenderer>().DOFade(1, Speed);
                 }
                 if (togray.gameObject.GetComponent<TMP_Text>() != null)
                 {
-                    togray.gameObject.GetComponent<TMP_Text>().DOFade(0, 0).OnComplete(() =>
-                    {
-                        togray.gameObject.GetComponent<TMP_Text>().DOFade(1, Speed);
-                    });
+                    togray.gameObject.GetComponent<TMP_Text>().DOFade(1, Speed);
                 }
             });
         }
@@ -234,8 +240,8 @@ public class LevelStateManager : MonoBehaviour
     }
     private void PlayButtonF()
     {
-        PlayButton.enabled = false;
         OpenLayer.GetComponent<Image>().DOFade(0, Speed / 2).OnComplete(()=>PlayButton.GetComponent<Image>().DOFade(0, Speed / 2));
+        PlayButton.enabled = false;
         _canGo = false;
         Market = false;
         OnPlay = true;
@@ -259,7 +265,7 @@ public class LevelStateManager : MonoBehaviour
             else
             {
                 OpenLayer.transform.DORotate(new Vector3(0, 0, 0), Speed);
-                CardPanel.transform.DOMove(_startPosition, Speed).OnComplete(() => _canGo = true);
+                CardPanel.transform.DOMove(From.position, Speed).OnComplete(() => _canGo = true);
                 Area.transform.DOMove(_Start.position, Speed);
                 PlayButton.enabled = true;
                 Market = false;

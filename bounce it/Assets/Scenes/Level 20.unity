@@ -306,6 +306,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: polygon
       objectReference: {fileID: 0}
+    - target: {fileID: 7830868302753007357, guid: b3f83c36a12ecc2479f1f99bc8f4cd35, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f83c36a12ecc2479f1f99bc8f4cd35, type: 3}
 --- !u!1001 &860241184

@@ -2022,9 +2022,10 @@ MonoBehaviour:
   - {fileID: 0}
   grayColor: {r: 0.21176471, g: 0.21176471, b: 0.21176471, a: 1}
   whiteColor: {r: 1, g: 1, b: 1, a: 1}
-  Speed: 0.465
+  Speed: 0.2
   CardPanel: {fileID: 0}
   To: {fileID: 0}
+  From: {fileID: 0}
   OpenLayer: {fileID: 0}
   PlayButton: {fileID: 0}
   HomeButton: {fileID: 0}
@@ -8597,6 +8598,7 @@ MonoBehaviour:
   _Canvases:
   - {fileID: 774266146}
   - {fileID: 796340260}
+  CanClick: 0
 --- !u!114 &2109581614
 MonoBehaviour:
   m_ObjectHideFlags: 0
