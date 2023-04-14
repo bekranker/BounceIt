@@ -3340,7 +3340,7 @@ MonoBehaviour:
   _MusicButton: {fileID: 1685454888}
   _SoundButton: {fileID: 430242746}
   _AudioMixer: {fileID: 24100000, guid: db18fc48e1496f04a97fe50643780075, type: 2}
-  MusicStartVolume: 0
+  MusicStartVolume: -10
   SoundStartVolume: 0
   SoundImage: {fileID: 1115815484}
   MusicImage: {fileID: 2053624680}
@@ -3536,7 +3536,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3851,7 +3851,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 123.55261, y: 69.52969}
+  m_SizeDelta: {x: 123.55261, y: 69.52966}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881917002
 MonoBehaviour:
@@ -8841,8 +8841,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -347.35718, y: 0}
-  m_SizeDelta: {x: -285.00427, y: 152.58633}
+  m_AnchoredPosition: {x: -347.35724, y: 0}
+  m_SizeDelta: {x: -285.0042, y: 152.58633}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2124544989
 MonoBehaviour:

@@ -24,7 +24,7 @@ public class Goal : MonoBehaviour
             collision.gameObject.SetActive(false);
             ActiveWinPanel();
             DidWin = true;
-            CreateAudio.PlayAudio("kazan", .25f, "General", "Sound");
+            CreateAudio.PlayAudio("kazan", .1f, "General", "Sound");
         }
 
     }

@@ -49,6 +49,7 @@ public class Settings : MonoBehaviour
         _canvas = transform.parent.GetComponent<Canvas>();
         _canvas.renderMode = RenderMode.ScreenSpaceCamera;
         _canvas.worldCamera = Camera.main;
+
         CheckMusic();
         CheckSound();
 

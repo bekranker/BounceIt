@@ -439,7 +439,7 @@ PrefabInstance:
     - target: {fileID: 8349782074182826613, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
       propertyPath: Stock
       value: 
-      objectReference: {fileID: 8349782074073028196}
+      objectReference: {fileID: 0}
     - target: {fileID: 8349782074204486412, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
       propertyPath: Stock
       value: 
@@ -538,11 +538,6 @@ GameObject:
 --- !u!1 &8349782074073028195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8349782074017231744, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
-  m_PrefabInstance: {fileID: 8349782074073028192}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8349782074073028196 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8349782074182826609, guid: 6623b173ec05ec243bf9c70c6d9a1835, type: 3}
   m_PrefabInstance: {fileID: 8349782074073028192}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8349782074073028197 stripped
