@@ -15,12 +15,16 @@ public class Goal : MonoBehaviour
     [SerializeField] CanvasGroup mainSettings;
     [SerializeField] TMP_Text _LevelNameShadow;
 
+    [HideInInspector] public bool DidWin;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.SetActive(false);
             ActiveWinPanel();
+            DidWin = true;
+            CreateAudio.PlayAudio("kazan", .25f, "General", "Sound");
         }
 
     }

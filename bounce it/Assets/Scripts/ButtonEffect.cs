@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
+public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
 
     [Space(15)]
@@ -35,6 +35,8 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     [SerializeField] public delegate void doClick();
     [SerializeField] public doClick _doClick;
+    [SerializeField] private bool IsStartButton;
+
 
     private Image _image;
     private Vector2 _startSize;
@@ -72,10 +74,6 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _canChange = false;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        
-    }
     private void complateState()
     {
         _image.gameObject.transform.DOScale(_currentSize, _ClickTime).OnComplete(()=> _canChange = true);
@@ -92,6 +90,10 @@ public class ButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (!_isEnter) return;
         if (_canChange)
         {
+            if(!IsStartButton)
+                CreateAudio.PlayAudio("TiklamaNormal", .1f, "General", "Sound");
+            else
+                CreateAudio.PlayAudio("TiklamaStartButton", .1f, "General", "Sound");
             _image.gameObject.transform.DOScale(_OnClickSize, _ClickTime).OnComplete(
                 () => complateState());
             _canChange = false;

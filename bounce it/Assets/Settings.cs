@@ -15,9 +15,13 @@ public class Settings : MonoBehaviour
     [SerializeField] private Image SoundImage, MusicImage;
     [SerializeField] private Sprite SoundSprite, MusicSprite, MutedSoundSprite, MutedMusicSprite;
     private bool _didMuteMusic, _didMuteSound;
+    private Canvas _canvas;
+
 
     private void Awake()
     {
+        
+
         #region Singelton
         List<Settings> me = FindObjectsOfType<Settings>().ToList();
 
@@ -42,6 +46,9 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
+        _canvas = transform.parent.GetComponent<Canvas>();
+        _canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        _canvas.worldCamera = Camera.main;
         CheckMusic();
         CheckSound();
 

@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a45ad09f5a3cce45a40245b02fbede9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitColor: {r: 1, g: 0.2783019, b: 0.2783019, a: 1}
+  HitColor: {r: 1, g: 0.4669811, b: 0.4669811, a: 1}
   HitColorTimeIn: 0.1
   HitColorTimeOut: 0.1
   _Effect: {fileID: 9060782191139044501, guid: 3b632b7f6cbb1d94c934ec39b89394a0, type: 3}

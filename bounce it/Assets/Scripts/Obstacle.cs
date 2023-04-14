@@ -101,7 +101,7 @@ public class Obstacle : MonoBehaviour
             //if the Side Rectangle has no rectangle
             if(SideType().gameObject.GetComponent<Side>().Stock == null)
             {
-
+                CreateAudio.PlayAudio("gezdirme", 1f, "General", "Sound");
                 _holdingObject.gameObject.transform.DOMove(new Vector3(a.x, a.y, 0), .15f);
 
                 //set Side Rectangle's "_holdingObject" variable to what we are holding.

@@ -23,6 +23,7 @@ public class PortalDedection : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            CreateAudio.PlayAudio("Portal", .25f, "General", "Sound");
             _ball = collision.gameObject;
             _lastVelocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
             GetComponent<Collider2D>().enabled = false;
@@ -43,6 +44,7 @@ public class PortalDedection : MonoBehaviour
     IEnumerator BallExit(GameObject _ball)
     {
         yield return new WaitForSeconds(_OutTime);
+        CreateAudio.PlayAudio("Portal", .25f, "General", "Sound");
         GetComponent<Collider2D>().enabled = true;
         _ToPos.transform.DOScale(new Vector3(.5f, .5f, .5f), _OutTime / 2).OnComplete(() => _ToPos.transform.DOScale(Vector3.one, _OutTime / 2));
         

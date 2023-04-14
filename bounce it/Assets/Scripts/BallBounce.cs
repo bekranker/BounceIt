@@ -8,14 +8,18 @@ public class BallBounce : MonoBehaviour
     public Vector2 StartWay;
     public ButtonEffect _ButtonEffect;
     public ButtonEffect OpenLayer;
+    public Collider2D _collider;
+    public bool _didPush;
 
+    
     [SerializeField] private Transform _Arrow;
 
 
+    private List<string> _soundEffects = new List<string> { "Sekme2", "Sekme" };
+    private int _soundEffectIndex = 0;
     private Rigidbody2D _rb;
-    public Collider2D _collider;
     private Vector3 _lastVelocity;
-    public bool _didPush;
+
 
     void Start()
     {
@@ -60,6 +64,11 @@ public class BallBounce : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Respawn"))
+        {
+            CreateAudio.PlayAudio("kaybet", .25f, "General", "Sound");
+            return;
+        }
         float speed = _lastVelocity.magnitude;
         Vector3 direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
 
@@ -68,6 +77,12 @@ public class BallBounce : MonoBehaviour
         print(roundedVector);
         _rb.velocity = Vector2.zero;
         _rb.velocity = roundedVector * Mathf.Max(Mathf.Round(speed), 0f);
+
+
+        _soundEffectIndex = (_soundEffectIndex == 1) ? 0 : 1;
+        CreateAudio.PlayAudio($"{_soundEffects[_soundEffectIndex]}", .25f, "General", "Sound");
+
+       
 
         print($"Velocity: {_rb.velocity}");
 
