@@ -12,6 +12,7 @@ public class LevelStateManager : MonoBehaviour
 
 
     public bool EditMode, Market;
+    public Image WhiteBackground;
 
     [Space(10)]
     public List<GameObject> ToGray = new List<GameObject>();
@@ -33,7 +34,7 @@ public class LevelStateManager : MonoBehaviour
     [SerializeField] private Transform _To, _Start, Area;
     [SerializeField] private TMP_Text LevelText, LevelTextShadow;
 
-
+    [SerializeField] List<Canvas> _Canvases;
 
 
 
@@ -46,6 +47,8 @@ public class LevelStateManager : MonoBehaviour
 
     private void Start()
     {
+        _Canvases.ForEach((_camera) => { _camera.worldCamera = Camera.main; });
+
         print($"Level{SceneManager.GetActiveScene().name}");
         _canGo = true;
         _didOpen = false;
@@ -255,6 +258,7 @@ public class LevelStateManager : MonoBehaviour
         {
             if (!_didOpen)
             {
+                WhiteBackground.DOFade(1, Speed);
                 OpenLayer.transform.DORotate(new Vector3(0, 0, 180), Speed);
                 CardPanel.transform.DOMove(To.position, Speed).OnComplete(() => _canGo = true);
                 Area.transform.DOMove(_To.position, Speed);
@@ -264,6 +268,7 @@ public class LevelStateManager : MonoBehaviour
             }
             else
             {
+                WhiteBackground.DOFade(0, Speed);
                 OpenLayer.transform.DORotate(new Vector3(0, 0, 0), Speed);
                 CardPanel.transform.DOMove(From.position, Speed).OnComplete(() => _canGo = true);
                 Area.transform.DOMove(_Start.position, Speed);

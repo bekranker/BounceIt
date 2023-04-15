@@ -14,7 +14,7 @@ public class Goal : MonoBehaviour
     [SerializeField] private List<GameObject> extras = new List<GameObject>();
     [SerializeField] CanvasGroup mainSettings;
     [SerializeField] TMP_Text _LevelNameShadow;
-
+    [SerializeField] Image _WhiteBackground;
     [HideInInspector] public bool DidWin;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,6 +41,7 @@ public class Goal : MonoBehaviour
     {
         mainSettings.DOFade(0, _LevelStateManager.Speed);
         _LevelNameShadow.DOFade(0, _LevelStateManager.Speed);
+        _WhiteBackground.DOFade(1, _LevelStateManager.Speed);
         mainSettings.interactable = false;
         extras.ForEach((_image) => 
         {

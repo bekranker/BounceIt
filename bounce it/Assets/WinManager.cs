@@ -25,6 +25,7 @@ public class WinManager : MonoBehaviour
     {
         _CanvasGroup.DOFade(0, 0.75f).OnComplete(()=> 
         {
+            
             _WhiteBackground.DOFade(0, 0.75f).OnComplete(() => 
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

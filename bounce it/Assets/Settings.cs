@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.Audio;
-
+using UnityEngine.SceneManagement;
 
 public class Settings : MonoBehaviour
 {
@@ -34,29 +34,26 @@ public class Settings : MonoBehaviour
                 print(me[i].name);
 
                 if (me[i] != this)
-                    Destroy(transform.parent);
+                    Destroy(transform.parent.transform.parent.transform.parent);
                 else
-                    DontDestroyOnLoad(transform.parent);
+                    DontDestroyOnLoad(transform.parent.transform.parent);
             }
         }
         else
-            DontDestroyOnLoad(transform.parent);
+            DontDestroyOnLoad(transform.parent.transform.parent.transform.parent);
         #endregion
     }
 
+    
+
     private void Start()
     {
-        _canvas = transform.parent.GetComponent<Canvas>();
-        _canvas.renderMode = RenderMode.ScreenSpaceCamera;
-        _canvas.worldCamera = Camera.main;
-
         CheckMusic();
         CheckSound();
 
         _MusicButton._doClick = SetMusic;
         _SoundButton._doClick = SetSound;
     }
-
 
 
     public void SetSound()
