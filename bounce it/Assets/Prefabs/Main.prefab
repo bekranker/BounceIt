@@ -537,11 +537,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642addc5a3abc9f459ba5c720a7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EnterTime: 0.1
-  _OnEnterSize: {x: 1.1, y: 1.1}
+  _EnterTime: 0.05
+  _OnEnterSize: {x: 0.9, y: 0.9}
   _OnEnterColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
-  _ExitTime: 0.1
-  _ClickTime: 0.1
+  _ExitTime: 0.05
+  _ClickTime: 0.05
   _ClickColor: {r: 0.735849, g: 0.113153346, b: 0, a: 1}
   _OnClickSize: {x: 1, y: 1}
   IsStartButton: 0
@@ -1019,11 +1019,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642addc5a3abc9f459ba5c720a7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EnterTime: 0.1
-  _OnEnterSize: {x: 1.1, y: 1.1}
+  _EnterTime: 0.05
+  _OnEnterSize: {x: 0.9, y: 0.9}
   _OnEnterColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
-  _ExitTime: 0.1
-  _ClickTime: 0.1
+  _ExitTime: 0.05
+  _ClickTime: 0.05
   _ClickColor: {r: 0.735849, g: 0.113153346, b: 0, a: 1}
   _OnClickSize: {x: 1, y: 1}
   IsStartButton: 1
@@ -1228,11 +1228,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642addc5a3abc9f459ba5c720a7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EnterTime: 0.1
-  _OnEnterSize: {x: 1.1, y: 1.1}
+  _EnterTime: 0.05
+  _OnEnterSize: {x: 0.9, y: 0.9}
   _OnEnterColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
-  _ExitTime: 0.1
-  _ClickTime: 0.1
+  _ExitTime: 0.05
+  _ClickTime: 0.05
   _ClickColor: {r: 0.735849, g: 0.113153346, b: 0, a: 1}
   _OnClickSize: {x: 1, y: 1}
   IsStartButton: 0
@@ -3458,11 +3458,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642addc5a3abc9f459ba5c720a7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EnterTime: 0.1
-  _OnEnterSize: {x: 1.1, y: 1.1}
+  _EnterTime: 0.05
+  _OnEnterSize: {x: 0.9, y: 0.9}
   _OnEnterColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
-  _ExitTime: 0.1
-  _ClickTime: 0.1
+  _ExitTime: 0.05
+  _ClickTime: 0.05
   _ClickColor: {r: 0.735849, g: 0.113153346, b: 0, a: 1}
   _OnClickSize: {x: 1, y: 1}
   IsStartButton: 0
@@ -5138,11 +5138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642addc5a3abc9f459ba5c720a7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EnterTime: 0.1
-  _OnEnterSize: {x: 1.1, y: 1.1}
+  _EnterTime: 0.05
+  _OnEnterSize: {x: 0.9, y: 0.9}
   _OnEnterColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
-  _ExitTime: 0.1
-  _ClickTime: 0.1
+  _ExitTime: 0.05
+  _ClickTime: 0.05
   _ClickColor: {r: 0.735849, g: 0.113153346, b: 0, a: 1}
   _OnClickSize: {x: 1, y: 1}
   IsStartButton: 0
@@ -6217,7 +6217,7 @@ MonoBehaviour:
   - {fileID: 8349782073804636287}
   grayColor: {r: 0.21176471, g: 0.21176471, b: 0.21176471, a: 1}
   whiteColor: {r: 1, g: 1, b: 1, a: 1}
-  Speed: 0.45
+  Speed: 0.2
   CardPanel: {fileID: 8349782073377482945}
   To: {fileID: 8349782073738445437}
   From: {fileID: 2000179132395404824}
@@ -8051,11 +8051,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642addc5a3abc9f459ba5c720a7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EnterTime: 0.1
-  _OnEnterSize: {x: 1.1, y: 1.1}
+  _EnterTime: 0.05
+  _OnEnterSize: {x: 0.9, y: 0.9}
   _OnEnterColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
-  _ExitTime: 0.1
-  _ClickTime: 0.1
+  _ExitTime: 0.05
+  _ClickTime: 0.05
   _ClickColor: {r: 0.735849, g: 0.113153346, b: 0, a: 1}
   _OnClickSize: {x: 1, y: 1}
   IsStartButton: 0
@@ -8457,7 +8457,7 @@ MonoBehaviour:
   - {fileID: 8349782074459639462}
   - {fileID: 8349782073712742005}
   - {fileID: 8349782073465570860}
-  _Speed: 0.1
+  _Speed: 0.15
   _GrayColor: {r: 0.21176471, g: 0.21176471, b: 0.21176471, a: 1}
   a: {x: 0, y: 0, z: 0}
 --- !u!1 &8349782074204486409
@@ -15537,13 +15537,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642addc5a3abc9f459ba5c720a7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EnterTime: 0.1
-  _OnEnterSize: {x: 0.9, y: 0.9}
+  _EnterTime: 0.05
+  _OnEnterSize: {x: 0.6, y: 0.6}
   _OnEnterColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
-  _ExitTime: 0.1
-  _ClickTime: 0.1
+  _ExitTime: 0.05
+  _ClickTime: 0.05
   _ClickColor: {r: 0.735849, g: 0.113153346, b: 0, a: 1}
-  _OnClickSize: {x: 1.1, y: 1.1}
+  _OnClickSize: {x: 0.7, y: 0.7}
   IsStartButton: 0
 --- !u!1 &8349782075154956383
 GameObject:

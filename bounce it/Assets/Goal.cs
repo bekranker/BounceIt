@@ -32,7 +32,7 @@ public class Goal : MonoBehaviour
     private void ActiveWinPanel()
     {
         _WinPanel.SetActive(true);
-        _WinPanel.GetComponent<CanvasGroup>().DOFade(1, .15f);
+        _WinPanel.GetComponent<CanvasGroup>().DOFade(1, _LevelStateManager.Speed);
         Toses();
         SaveLevel();
     }

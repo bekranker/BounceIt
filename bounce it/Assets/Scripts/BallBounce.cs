@@ -50,7 +50,8 @@ public class BallBounce : MonoBehaviour
         if (_didPush) return;
 
         _collider.isTrigger = false;
-        _rb.velocity = StartWay * 200 * Time.fixedDeltaTime;
+        _rb.AddForce(StartWay * Time.deltaTime * 185f, ForceMode2D.Impulse);
+        //_rb.velocity = StartWay * 200 * Time.deltaTime;
         _didPush = true;
         _Arrow.GetComponent<SpriteRenderer>().enabled = false;
     }

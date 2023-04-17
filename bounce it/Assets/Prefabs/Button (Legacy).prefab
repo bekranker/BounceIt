@@ -274,13 +274,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642addc5a3abc9f459ba5c720a7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EnterTime: 0.1
-  _OnEnterSize: {x: 1.1, y: 1.1}
+  _EnterTime: 0.05
+  _OnEnterSize: {x: 0.9, y: 0.9}
   _OnEnterColor: {r: 1, g: 0.5613208, b: 0.5613208, a: 1}
-  _ExitTime: 0.1
-  _ClickTime: 0.1
+  _ExitTime: 0.05
+  _ClickTime: 0.05
   _ClickColor: {r: 1, g: 0.1273585, b: 0.1273585, a: 1}
-  _OnClickSize: {x: 1.25, y: 1.25}
+  _OnClickSize: {x: 1, y: 1}
+  IsStartButton: 0
 --- !u!114 &6360313683901631375
 MonoBehaviour:
   m_ObjectHideFlags: 0

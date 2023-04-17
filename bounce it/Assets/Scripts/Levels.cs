@@ -27,9 +27,11 @@ public class Levels : MonoBehaviour
             {
                 _LevelButtons[i].GetComponent<Image>().sprite = _UnlockSprite;
                 _LevelButtons[i].enabled = false;
+                _LevelButtons[i].GetComponent<Button>().interactable = false;
             }
             else
             {
+                _LevelButtons[i].GetComponent<Button>().interactable = true;
                 _LevelButtons[i].enabled = true;
             }
             _LevelButtons[i].transform.GetChild(0).GetComponent<TMP_Text>().text = (i + 1).ToString();
